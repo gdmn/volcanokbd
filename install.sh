@@ -1,12 +1,14 @@
 #!/bin/bash
 
-read -n 1 -p "Backslash fix (y/N)?" choice
+##read -n 1 -p "Backslash fix (y/N)?" choice
 echo
 
 case "$choice" in 
   y|Y ) BKSL='BKSLFIX=y';;
   * ) BKSL='BKSLFIX=n';;
 esac
+
+BKSL='BKSLFIX=n'
 
 if [[ $1 != 'dkms' ]]; then
     echo '## Making package ##'
@@ -19,7 +21,7 @@ else
     make dkms
 fi
 
-quirk='0x0c45:0x7603:0x0007'
+quirk='0x258a:0x1006:0x0009'
 modquirk="options usbhid quirks=$quirk"
 grubquirk="usbhid.quirks=$quirk"
 
@@ -30,13 +32,13 @@ if (lsmod | grep 'usbhid'); then
     if ! (cat /etc/modprobe.d/usbhid.conf | grep "$modquirk"); then
         echo '## Writing to /etc/modprobe.d/usbhid.conf ##'
         echo $modquirk >> /etc/modprobe.d/usbhid.conf
-        if [[ $1 != 'dkms' ]]; then sudo echo 'aziokbd' >> /etc/modules; fi
+        if [[ $1 != 'dkms' ]]; then sudo echo 'volcanokbd' >> /etc/modules; fi
     else
        echo 'NOTICE - modprobe config files have already been updated'
     fi
 
     echo '## Starting module ##'
-    modprobe aziokbd
+    modprobe volcanokbd
 
     # Note: this line may fail if you have other drivers loaded that depend
     # on usbhid. For example, your mouse driver. In that case you would have
@@ -48,9 +50,9 @@ else
     echo '## usbhid is compiled into kernel ##'
 
     # Making sure the quirk does not get added multiple times
-    if ! (cat /etc/default/grub.d/aziokbd.conf | grep "$grubquirk"); then
-        echo '## Writing to /etc/default/grub.d/aziokbd.conf ##'
-        echo $grubquirk >> /etc/default/grub.d/aziokbd.conf
+    if ! (cat /etc/default/grub.d/volcanokbd.conf | grep "$grubquirk"); then
+        echo '## Writing to /etc/default/grub.d/volcanokbd.conf ##'
+        echo $grubquirk >> /etc/default/grub.d/volcanokbd.conf
         $distro = $(lsb_release -si)
         if ($distro | grep 'Ubuntu'); then
             update-grub

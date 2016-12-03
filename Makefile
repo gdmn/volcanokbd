@@ -4,7 +4,7 @@
 KVER := $(shell uname -r)
 KSRC := /lib/modules/$(KVER)/build
 MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/input/keyboard
-MODULE_NAME := aziokbd
+MODULE_NAME := volcanokbd
 MODULE_VER := 1.0.0
 
 ifeq ($(DEBUG),y)

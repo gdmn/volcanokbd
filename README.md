@@ -1,4 +1,25 @@
-# Linux Microdia Keyboard Chipset Driver #
+# Linux Keyboard Chipset Driver #
+
+For Chipset `0x258a`:`0x1006`
+
+Written for the [Modecom Volcano Lanparty USB Keyboard](http://modecom.com/volcano-lanparty-2/)
+
+How to print all keyboard events:
+
+    cat /dev/input/by-id/usb-Gaming_KB_Gaming_KB-if01-event-kbd | xxd -g 1 -c 8
+
+or:
+
+    gcc keyboard_key_capture.c ; sudo ./a.out
+
+How to compile and install driver:
+
+    ./install.sh
+    rmmod volcanokbd; rmmod usbhid && modprobe volcanokbd && modprobe usbhid quirks=0x258a:0x1006:0x0009 || modprobe usbhid
+
+---
+
+Original README file:
 
 For Chipset `0x0c45`:`0x7603`
 The kernel reports the chipset as `SONiX USB Keyboard`
