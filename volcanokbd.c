@@ -42,8 +42,8 @@
  * Version Information
  */
 #define DRIVER_VERSION ""
-#define DRIVER_AUTHOR "Colin Svingen <swoogan@hotmail.com>"
-#define DRIVER_DESC "Azio L70 Keyboard Driver"
+#define DRIVER_AUTHOR "Damian Gorlach <damian.gorlach@devsite.pl>, Colin Svingen <swoogan@hotmail.com>"
+#define DRIVER_DESC "Modecom Volcano Lanparty Keyboard Driver"
 #define DRIVER_LICENSE "GPL"
 #define ML_VENDOR_ID   0x258a
 #define ML_PRODUCT_ID  0x1006
@@ -51,12 +51,6 @@
 MODULE_AUTHOR(DRIVER_AUTHOR);
 MODULE_DESCRIPTION(DRIVER_DESC);
 MODULE_LICENSE(DRIVER_LICENSE);
-
-#ifdef BACKSLASH_FIX
-#define AZ_KEY_CONTESTED KEY_BACKSLASH
-#else
-#define AZ_KEY_CONTESTED KEY_RIGHTBRACE
-#endif
 
 static const unsigned char az_kbd_keycode[256] = {
         /* BEGIN 06 */

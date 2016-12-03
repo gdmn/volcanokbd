@@ -17,6 +17,11 @@ How to compile and install driver:
     ./install.sh
     rmmod volcanokbd; rmmod usbhid && modprobe volcanokbd && modprobe usbhid quirks=0x258a:0x1006:0x0009 || modprobe usbhid
 
+How to debug the driver:
+
+    # edit volcanokbd.c and uncomment debug messages and reinstall
+    journalctl -b -f
+
 ---
 
 Original README file:
