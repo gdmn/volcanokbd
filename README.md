@@ -32,6 +32,17 @@ If somehow volcanokbd driver is not used after restart, try this:
 
     rmmod volcanokbd 2>/dev/null; rmmod usbhid; modprobe volcanokbd; modprobe usbhid
 
+Other useful links:
+
+- [Azio L70 Keyboard Linux Driver, The Implementation](http://swoogan.blogspot.se/2014/09/azio-l70-keyboard-linux-driver.html)
+- [Azio Levetron Mech5 Keyboard Driver](https://github.com/forivall/azio-levetron-mech5-linux-driver)
+- [CTRL and ALT works as SHIFT?](http://askubuntu.com/questions/648798/ctrl-and-alt-works-as-shift)
+- [Linux/include/uapi/linux/input-event-codes.h](http://lxr.free-electrons.com/source/include/uapi/linux/input-event-codes.h)
+- [Linux/drivers/hid/usbhid/usbkbd.c](http://lxr.free-electrons.com/source/drivers/hid/usbhid/usbkbd.c?v=3.2)
+- [How to get all my keys to send keycodes](http://unix.stackexchange.com/questions/130656/how-to-get-all-my-keys-to-send-keycodes#130762)
+- [Prevent usbhid from claiming USB device](https://unix.stackexchange.com/questions/55495/prevent-usbhid-from-claiming-usb-device)
+- [Keyboard Ghosting Demonstration](https://www.microsoft.com/appliedsciences/KeyboardGhostingDemo.mspx)
+
 ---
 
 Original README file:
