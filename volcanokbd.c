@@ -428,11 +428,11 @@ static int usb_kbd_probe(struct usb_interface *iface,
 
     if (!strlen(kbd->name))
         snprintf(kbd->name, sizeof(kbd->name),
-             "USB HIDBP aziokbd Keyboard %04x:%04x",
+             "USB HIDBP volcanokbd Keyboard %04x:%04x",
              le16_to_cpu(dev->descriptor.idVendor),
              le16_to_cpu(dev->descriptor.idProduct));
 
-    printk("<1>aziokbd: detected %s\n", kbd->name);
+    printk("<1>volcanokbd: detected %s\n", kbd->name);
 
     usb_make_path(dev, kbd->phys, sizeof(kbd->phys));
     strlcat(kbd->phys, "/input0", sizeof(kbd->phys));

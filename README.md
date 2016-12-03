@@ -17,6 +17,12 @@ How to compile and install driver:
     ./install.sh
     rmmod volcanokbd; rmmod usbhid && modprobe volcanokbd && modprobe usbhid quirks=0x258a:0x1006:0x0009 || modprobe usbhid
 
+How to install for DKMS:
+
+    hg clone https://bitbucket.org/dmn/volcanokbd
+    cd volcanokbd
+    sudo ./install.sh dkms
+    
 How to debug the driver:
 
     # edit volcanokbd.c and uncomment debug messages and reinstall
