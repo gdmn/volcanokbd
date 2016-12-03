@@ -28,6 +28,10 @@ How to debug the driver:
     # edit volcanokbd.c and uncomment debug messages and reinstall
     journalctl -b -f
 
+If somehow volcanokbd driver is not used after restart, try this:
+
+    rmmod volcanokbd 2>/dev/null; rmmod usbhid; modprobe volcanokbd; modprobe usbhid
+
 ---
 
 Original README file:
